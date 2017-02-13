@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Components/Header';
+import Contacts from './Components/Contacts';
 import {Grid, Row, Col} from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,7 +15,7 @@ class App extends Component {
         <Grid>
           <Row>
             <Col xs={12} md={12} lg={12}>
-              My App
+            <Contacts />
             </Col>
           </Row>
         </Grid>

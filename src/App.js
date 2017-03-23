@@ -1,4 +1,4 @@
-rimport React, { Component } from 'react';
+import React, { Component } from 'react';
 import Header from './Components/Header';
 import Contacts from './Components/Contacts';
 import {Grid, Row, Col} from 'react-bootstrap';

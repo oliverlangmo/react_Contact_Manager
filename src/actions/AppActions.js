@@ -19,7 +19,6 @@ export default {
         actionType: AppConstants.RECEIVE_CONTACTS_ERROR,
         message: message
       });
-
     });
   }
-};
+}

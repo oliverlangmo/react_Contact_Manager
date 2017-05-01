@@ -1,40 +1,55 @@
 import React, { Component } from 'react';
+import {ListGroup} from 'react-bootstrap';
+import ContactListItem from './ContactListItem';
 import AppActions from '../actions/AppActions';
 import AppStore from '../stores/AppStore';
 
+function getContactListItem(contact){
+  return (
+    <ContactListItem key={contact.id} contact={contact} />
+  );
+}
 
 class Contacts extends Component {
-  constructor(props) {
+  constructor(props){
     super(props);
     this.state = {
       contacts: []
-    };
+    }
+
     this.onChange = this.onChange.bind(this);
   }
 
-componentWillMount(){
-  AppStore.addChangeListener(this.onChange);
-}
+  componentWillMount(){
+    AppStore.addChangeListener(this.onChange);
+  }
 
-componentDidMount(){
-  AppActions.receiveContacts();
-}
+  componentDidMount(){
+    AppActions.receiveContacts();
+  }
 
-componentWillUnmount(){
-  AppActions.removeChangeListener(this.onChange);
-}
+  componentWillUnmount(){
+    AppStore.removeChangeListener(this.onChange);
+  }
 
-onChange(){
-  this.setState({
-    contacts: AppStore.getContacts()
-  }, function(){
-    console.log(this.state);
-  });
-}
+  onChange(){
+    this.setState({
+      contacts: AppStore.getContacts()
+    }, function(){
+      console.log(this.state);
+    });
+  }
+
   render() {
+    let contactListItems;
+    if(this.state.contacts){
+      contactListItems = this.state.contacts.map(contact => getContactListItem(contact));
+    }
     return (
       <div>
-        Contacts
+        <ListGroup>
+          {contactListItems}
+        </ListGroup>
       </div>
     );
   }

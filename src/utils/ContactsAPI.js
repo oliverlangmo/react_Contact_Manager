@@ -8,7 +8,7 @@ export default {
         .end((err, response) => {
           if(err) reject(err);
           resolve(JSON.parse(response.text));
-        })
+        });
     });
   },
   saveContact: (url, contact) => {
@@ -19,7 +19,7 @@ export default {
         .end((err, response) => {
           if(err) reject(err);
           resolve(JSON.parse(response.text));
-        })
+        });
     });
   }
-}
+};

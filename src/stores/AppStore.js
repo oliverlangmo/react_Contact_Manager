@@ -6,13 +6,15 @@ const CHANGE_EVENT = 'change';
 
 let _contacts = [];
 
-function setContacts(contacts){
-  _contacts = contacts.sort(SortByName);
-}
+
 
 function setContact(contact){
   _contacts.push(contact);
   setContacts(_contacts);
+}
+
+function setContacts(contacts){
+  _contacts = contacts.sort(SortByName);
 }
 
 function SortByName(a, b){

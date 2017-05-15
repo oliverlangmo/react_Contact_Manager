@@ -43,25 +43,25 @@ const AppStore = new AppStoreClass();
 
 AppStore.dispatchToken = AppDispatcher.register(action => {
   switch(action.actionType){
-    case AppConstants.RECIEVE_CONTACTS:
+    case AppConstants.RECEIVE_CONTACTS:
       setContacts(action.contacts);
       AppStore.emitChange();
-      break;
+      break
 
-    case AppConstants.RECIEVE_CONTACTS_ERROR:
+    case AppConstants.RECEIVE_CONTACTS_ERROR:
       alert(action.message);
       AppStore.emitChange();
-      break;
+      break
 
-    case AppConstants.RECIEVE_CONTACT:
+    case AppConstants.RECEIVE_CONTACT:
       setContact(action.contact);
       AppStore.emitChange();
-      break;
+      break
 
-    case AppConstants.RECIEVE_CONTACT_ERROR:
+    case AppConstants.RECEIVE_CONTACT_ERROR:
       alert(action.message);
       AppStore.emitChange();
-      break;
+      break
 
     default:
   }

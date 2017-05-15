@@ -3,15 +3,15 @@ import {Panel, FormGroup, Button} from 'react-bootstrap';
 import AppActions from '../actions/AppActions';
 
 class AddContact extends Component {
-  constructor(props) {
+  constructor(props){
     super(props);
-    this.state ={
+    this.state = {
       newContact: {
-        name: '',
-        email: '',
-        phone: ''
+        name:'',
+        email:'',
+        phone:''
       }
-    };
+    }
   }
 
   handleSubmit(e){
@@ -23,20 +23,21 @@ class AddContact extends Component {
           name: this.refs.name.value,
           email: this.refs.email.value,
           phone: this.refs.phone.value
-         }
-        }, function(){
-          AppActions.saveContact(this.state.newContact);
+        }
+      }, function(){
+        AppActions.saveContact(this.state.newContact);
       });
-      this.refs.name.value='';
-      this.refs.email.value='';
-      this.refs.phone.value='';
+
+      this.refs.name.value = '';
+      this.refs.email.value = '';
+      this.refs.phone.value = '';
     }
     e.preventDefault();
   }
 
   render() {
     return (
-      <Panel header='Add Contact'>
+      <Panel header="Add Contact">
         <form onSubmit={this.handleSubmit.bind(this)}>
           <FormGroup>
             <input
@@ -44,15 +45,15 @@ class AddContact extends Component {
               type="text"
               ref="name"
               placeholder="Add Name"
-              />
+            />
           </FormGroup>
           <FormGroup>
             <input
               className="form-control"
               type="text"
-              ref="Email"
+              ref="email"
               placeholder="Add Email"
-              />
+            />
           </FormGroup>
           <FormGroup>
             <input
@@ -60,7 +61,7 @@ class AddContact extends Component {
               type="text"
               ref="phone"
               placeholder="Add Phone"
-              />
+            />
           </FormGroup>
           <Button type="submit">Submit</Button>
         </form>

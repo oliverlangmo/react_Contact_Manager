@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Well, ListGroup, ListGroupItem} from 'react-bootstrap';
+import {Button, Well, ListGroup, ListGroupItem} from 'react-bootstrap';
 
 class ContactListItem extends Component {
   render() {
@@ -11,6 +11,7 @@ class ContactListItem extends Component {
           <ListGroupItem>Email: {contact.email}</ListGroupItem>
           <ListGroupItem>Phone: {contact.phone}</ListGroupItem>
         </ListGroup>
+        <Button bsStyle="danger" onClick={this.handleDeleteClick.bind(this)};
       </Well>
     );
   }
